@@ -19,10 +19,11 @@ class Alien(Sprite):
 
         self.x = float(self.rect.x)
 
-    def check_edges(self):
+    def check_edges(self) -> bool:
         screen_rect = self.screen.get_rect()
-        if self.rect.right >= screen_rect.right or self.rect.left <= 0:
-            return True
+        return (
+            self.rect.right >= screen_rect.right or self.rect.left <= screen_rect.left
+        )
         
     def update(self):
 
