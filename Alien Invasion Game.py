@@ -2,7 +2,12 @@ import sys
 
 from time import sleep
 
-import pygame
+try:
+    import pygame
+except ImportError:
+    print("ERROR: 'pygame' library is required for this game.\n"
+          "Please visit the README.md Section 1.1 for instructions to install pygame.\n")
+    sys.exit(1)
 
 from game_settings import Settings
 from scoreboard import Scoreboard
@@ -202,5 +207,6 @@ class AlienInvasion:
 if __name__ == '__main__':
     ai = AlienInvasion()
     ai.run_game()
+    sys.exit(0)
 
-quit()
+
